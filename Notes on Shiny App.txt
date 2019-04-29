@@ -1,0 +1,13 @@
+	In making the shiny app, we realized that we wanted a map to be the main plot feature with inputs that the user specifies. 
+
+	A first inputs of interest were the substrate, so we went through and determined how best to categorize and combine sample types that were collected (mostly so we had enough data points in each). We figured this would either be best to let the user specify via a drop down menu or a check box option. 
+
+	Another input of interest was the time the sample type was collected. We figured that since there are many different times of year represented for sample collection (ie the samples weren?t taken every year in October, for instance, but randomly across the year), we figured we would do just the year as the option. It appears that samples were taken one time in a given year, which was another reason we chose year. The best way for the user to specify the year was a slider input, so we made one of those.  
+	
+	thought it would be nice to put an image of the mine in, for viewing outside of the map output. Found that the img call in the ui could do this using a jpg. downloaded and incorporated one. put it in a www files as required.
+	
+	modified rows and columns with fluidrow and fluidcolumn, to get more than one selector section on the left panel
+	
+	initially wanted to put the metal or radionuclide of interest as an option for the user to select, but thought it might work better to have it as a leaflet flag to pop up. We had made maps using ggmap and after converting eastins and northings to lat long, but realized that non-static maps were an option! This was apparent only after the leaflet lecture Dr. Anderson gave. Figured people can select sample type and time, and all the measured information is right there. Can do this by modifying the pop-up info example that Dr. Brooke initially showed us! Need to incorporate some HTML coding.
+	
+	Should we put the clean up script right in the server.R script? Or should we 'source' it from an outside script at the beginning of the file? Decided we can source the clean-up script, and then the river mapping script that modifies some categories into a format that we need (ex summing radionuclides, getting LOD values to those we desire) and converts the data to lat-long. We can also make the needed shapefile. Then load both dataframes and start the leaflet calls. 

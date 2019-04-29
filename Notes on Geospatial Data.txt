@@ -1,0 +1,9 @@
+Converting the georeference data in the mmc dataset from UTM to Lat-Long
+
+Note that geospatial data conversion is deeply arcane and complex; I am not attempting to explain all the acronyms, data sources and conversion equations here as I would simply be parroting information available from other sources.
+
+Based on the information included in the dataset and the accompanying paper, I identified the georeference data as UTM coordinates with WGS84 as the datum (shape of the Earth, since it is not truly a sphere), and the sample points in Zones 52S and 53S (the zones indicate which part of a flattened map the coordinates lie).  
+
+R uses the libraries rgdal and sp for the conversion of geospatial data.  To convert the Easting and Northing coordinates to lat-long required several steps.  Note that all these steps could be done with a single function; because of my lack of familiarity with this type of work I laid them all out one at a time and explicitly to make my troubleshooting easier.  First, I had to separate the data for Zones 52S and 53S as each utilizes a distinct transform.  Next, I had to convert the coordinates to a specialized type of dataframe, called a "Spatial Points Dataframe."  To do this required selecting a reference that would identify the coordinate system to R.  The systems for the UTM Zone 52S data is EPSG 32752, and Zone 53S is EPSG 32753.  
+
+Once the dataframes are set up, the tranform is done to convert the original coordinates to EPSG 4326, which is standard lat-long format.  Then I recombined the data from the two Zones.  Now that the data is in lat-long, standard R routines from ggplot and ggmap libraries can be used to plot the data.

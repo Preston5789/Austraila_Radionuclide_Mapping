@@ -1,0 +1,20 @@
+Notes on the cleaning script
+
+A few highlights, most of this is also in the comments.
+
+read_csv attempts to guess the column types based on the first 1000 rows.  Turned out we were losing some data in the sparsely populated columns as R was guessing "double" and we had some <LOD results (see below) that needed to be initally read in as character.  Adding the guess_max parameter to read_csv took care of this.
+
+A number of sample results were reported as below detection limits, in the form of "<value", where value is the detection limit rather than an actual measured value.  We discussed several possibilities for what to do with these results.  We found references that directly used the LOD as a result, that used 0 as the result, or divided the LOD by a factor (2 or sqrt(2)) for use as a result.  We elected to go the highly conservative and use the LOD as the value. 
+
+In the course of looking for a better way to do if-then-else in R, I found the case_when command, which is pretty slick.  It would have been useful for several of the homework problems.  The help file isn't great.
+case_when(
+logical_statement1 ~ desired_outcome1,
+logical_statement2 ~ desired_outcome2,
+TRUE ~ default_outcome
+)
+
+equivalent to pseudocode
+if x1 then y1
+elseif x2 then y2
+else y3
+

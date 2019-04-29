@@ -1,0 +1,107 @@
+---
+title: "Radionuclide and Heavy Metal Concentrations in Australian Riverways"
+author: "Preston Phillips"
+date: "December 4, 2016"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Research Questions:
+* Have mining and milling operations at the Ranger Mine contaminated the surrounding Alligators River Region with radionuclides and metals.
+    + Where are the sample types of interest located in relation to the mine?
+    + How do the concentrations of radionuclides and metals change with distance from the mine?
+
+##Problem
+The Alligator Rivers Region is a province in the wet-dry tropics of northeastern Australia. The land in this region is rich in uranium, and since 1980 has been home to a large mine: The Ranger Uranium mine. An Australian government entity called the Environmental Research Institute of the Supervising Scientist (ERISS) has been collecting animal and environmental samples from the land around the mine and the Alligator Rivers Watershed since mine activity began. The samples have been measured for many different mine contaminants including the heavy metals Cu, As, Pb, Hg, and the radionuclides ^234^U, ^238^U, ^230^Th, ^232^Th, ^226^Ra, ^228^Ra, ^210^Pb, ^210^Po, ^228^Th, ^227^Ac, and ^40^K.  All of these metals and radionuclides are naturally occurring, but may have been released during mining and milling at the mine.
+
+Radionuclide information is measured using the SI unit of activity, the Becquerel (Bq).  This unit is defined as one radioactive decay or disintegration per second.
+
+The location of the mine and the surrounding region is show below. Locations of sample collection are indicated.
+
+```{r large map,fig.align='center', echo=FALSE, fig.width=4}
+library(png)
+library(grid)
+img <- readPNG("./Figures/map_large.png")
+ grid.raster(img)
+
+```
+
+Samples from flora, fauna, and soil and water have been gathered by the ERISS. The specific sample types can be clustered based on their ecological niche and purpose in the watershed, to contain the following groups: water, fish, molluscs, freshwater animals, freshwater plants, freshwater sediment, terrestrial animals, terrestrial plants, and terrestrial soil. The following map shows the collection locations of these varying sample types, near the Ranger Mine.
+
+```{r small map,fig.align='center', echo=FALSE, fig.width=4}
+library(png)
+library(grid)
+img <- readPNG("./Figures/map_small.png")
+ grid.raster(img)
+
+```
+
+This dataset of environmental samples has been continually gathered by the ERISS to keep track of mine contaminants in the region over space and time. The dataset was recently published in the [Journal of Environmental Radioactivity] (http://www.sciencedirect.com/science/article/pii/S0265931X16301928). 
+
+Attempting to answer the research questions above using this dataset is important for many reasons. One reason is to better understand the overall impacts of uranium mining on water and fauna, as 1/3 of the land in the region is forms the Kakadu National Park.  Addtionally, most of the remaining land is aboriginally owned. Because of this ownership, there are concerns about the contamination of bush foods and also the contamination of flora for wild animal consumption.  After mine closure, the site is to be remediated by 2026 and incorporated into Kakadu, so knowing where and to what level contaminants can be found will be central to this goal. 
+
+
+Are the data that you chose to use reasonable for answering the question? 
+Have you explained any caveats or limitations to the data that I should keep in mind when interpreting your results? As an example of how to do this for an analysis with secondary (imperfect) data, see how this post handles describing the data it uses, particularly in footnotes 1 and 3 and the sentences in the main text that correspond to them.
+
+##Analysis
+The initial dataset was made available as a .xlsx file.  The only manual process was to load the file into Excel and save as a .csv file; all other data cleaning was performed using an R script.  Most of the data cleanup consisted of cosmetic and convenience changes, renaming variables and setting data types.  We created a variable called ```sample_type``` to group samples by substrate, such as Terrestrial Plants or Fish.  This is important for both our analysis and for the Shiny app.
+
+The dataset includes geospatial data using Easting and Northing in two different zones of a Mercator Projection.  We used functions from the ```rgdal``` and ```sp``` packages to convert to lat-long coordinates, which we were then able to plot using ```ggplot2```.  
+
+A number of sample results were reported as below detection limits, in the form of "<value", where value is the detection limit rather than an actual measured value.  We discussed several possibilities for managing these results.  We found references that directly used the LOD as a result (highly conservative), that used 0 as the result (effectively loses results), or divided the LOD by a factor (2 or $\sqrt{2}$) for use as a result (could be considered arbitary).  We elected to go the highly conservative route and use the LOD as the value. 
+
+Have you explained the way you analyzed the data clearly enough that I think that I could reproduce your analysis if I had your data? 
+
+Have you explained a bit why your method of analyzing the data is appropriate for your question?
+
+Have you let me know about major caveats or limitations related to the methods of analysis you’re using?
+
+##Results
+
+Below are the results for the radionuclide concentration (Bq/Kg) in Mulluscs as a function of the year sampled. The color of each point is scaled by it's proximity to the mine. 
+
+```{r Mollusc,fig.align='center', echo=FALSE, fig.width=4}
+library(png)
+library(grid)
+img <- readPNG("./Figures/Mollusc.png")
+ grid.raster(img)
+
+```
+
+If the presence of the mine had a direct impact on the radionuclide concentrations in the environment, one would expect to see concentrations of radionuclides increase over time from the point before the mine was established to after. However, there is no apparent data to indicate an upward trend in radionuclide concentration over time, nor does the radionuclide concentration seem to depend on distance for a particular year. 
+
+The fluctuations in radionuclide content is most likely caused by naturally radionuclide concentrations in the local geology. There has been a presence of radionculides in the surrounding geology preceding any excavation from the mine. 
+
+```{r Rad vs. Distance,echo=FALSE, fig.width=3, fig.align='center'}
+library(png)
+library(grid)
+img <- readPNG("./Figures/Rad_Close.png")
+ grid.raster(img)
+
+```
+
+
+
+
+
+```{r Heavy Metal, fig.align='center', echo=FALSE, fig.width=3}
+library(png)
+library(grid)
+img <- readPNG("./Figures/Heavy_Metal.png")
+ grid.raster(img)
+
+```
+
+
+
+Is it clear what each is showing and how I should interpret it? (For a nice example of explaining how to interpret results, see footnote 4 here.) Have you explained and interpreted your main results in the text? Have you pointed out any particularly interesting observations (interesting outliers, for example)?
+
+When I’m finished with your article, do I have more insight into your research question than when I started?
+##Further Research
+While the dataset is quite robust in general, there are some limitations.  For example, there are very few samples of insects available.  For locations more than a few kilometers from the mine, there are not many repeat samples such that a time course could be studied.  Since the primary focus was environmental samples, there does not appear to have been a concerted effort conducted to study animals and their uptake of heavy metals and radionuclides.
+
+
