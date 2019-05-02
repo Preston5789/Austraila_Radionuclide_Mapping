@@ -30,8 +30,13 @@ If the presence of the mine had a direct impact on the radionuclide concentratio
 The fluctuations in radionuclide content is most likely caused by naturally radionuclide concentrations in the local geology. There has been a presence of radionculides in the surrounding geology preceding any excavation from the mine.
 
 ## R Shiny
-The shiny app is an interactive map where the user can define inputs to map and view contaminant concentrations. The first input is substrate, which the user can specify via a drop-down menu. 
+The shiny app is an interactive map where the user can define inputs to map and view contaminant concentrations. 
 
+<p align="center">
+  <img src="https://github.com/Preston5789/Austraila_Radionuclide_Mapping/blob/master/Austrialia_Pics/Shiny_App.png" width="350" title="hover text">
+</p>
+
+The first input is substrate, which the user can specify via a drop-down menu. 
 
 The second input is the date the sample type was collected. Since there are many different times of year represented for sample collection (ie the samples weren?t taken every year in October, for instance, but randomly across the year), the samples are selectable by year as the option. The user can specify the year via a slider input. 
 	
