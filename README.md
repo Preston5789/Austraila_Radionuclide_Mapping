@@ -1,6 +1,10 @@
 # Mapping Radionuclide Contamination Down the Alligator River
 
 ## Background
+
+<p align="center">
+  <img src="https://github.com/Preston5789/Austraila_Radionuclide_Mapping/blob/master/Austrialia_Pics/MapofRangerMine.png" width="350" title="hover text">
+</p>
 The Alligator Rivers Region is a province in the wet-dry tropics of northeastern Australia. The land in this region is rich in uranium, and since 1980 has been home to a large mine: The Ranger Uranium mine. An Australian government entity called the Environmental Research Institute of the Supervising Scientist (ERISS) has been collecting animal and environmental samples from the land around the mine and the Alligator Rivers Watershed since mine activity began. The samples have been measured for many different mine contaminants including the heavy metals Cu, As, Pb, Hg, and the radionuclides U-234, U-238, Th-230, Th-232, Ra-226, Ra-228, Pb-210, Po-210, Th-228, Ac-227, and K-40. All of these metals and radionuclides are naturally occurring, but may have been released during mining and milling at the mine.
 
 Samples from flora, fauna, and soil and water have been gathered by the ERISS. The specific sample types can be clustered based on their ecological niche and purpose in the watershed, to contain the following groups: water, fish, molluscs, freshwater animals, freshwater plants, freshwater sediment, terrestrial animals, terrestrial plants, and terrestrial soil.
