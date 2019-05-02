@@ -17,16 +17,15 @@ Have mining and milling operations at the Ranger Mine contaminated the surroundi
 
 –	How do the concentrations of radionuclides and metals change with distance from the mine?
 
+### Analysis
+The initial dataset was made available as a .xlsx file. The only manual process was to load the file into Excel and save as a .csv file; all other data cleaning was performed using an R script. Most of the data cleanup consisted of cosmetic and convenience changes, renaming variables and setting data types. We created a variable called sample_type to group samples by substrate, such as Terrestrial Plants or Fish. This is important for both our analysis and for the Shiny app.
+The dataset includes geospatial data using Easting and Northing in two different zones of a Mercator Projection. We used functions from the rgdal and sp packages to convert to lat-long coordinates, which we were then able to plot using ggplot2.
+A number of sample results were reported as below detection limits, in the form of "<value", where value is the detection limit rather than an actual measured value. We discussed several possibilities for managing these results. We found references that directly used the LOD as a result (highly conservative), that used 0 as the result (effectively loses results), or divided the LOD by a factor (2 or √2) for use as a result (could be considered arbitary). We elected to go the highly conservative route and use the LOD as the value.
 
-
-```
-
-```
-
-```
-
-```
-
+### Results
+<p align="center">
+  <img src="https://github.com/Preston5789/Austraila_Radionuclide_Mapping/blob/master/Austrialia_Pics/Graph1.png" width="350" title="hover text">
+</p>
 
 ## Built With
 
