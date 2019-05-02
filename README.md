@@ -8,7 +8,9 @@ Samples from flora, fauna, and soil and water have been gathered by the ERISS. T
 
 ### Research Question
 Have mining and milling operations at the Ranger Mine contaminated the surrounding Alligators River Region with radionuclides and metals.
+
 –	Where are the sample types of interest located in relation to the mine?
+
 –	How do the concentrations of radionuclides and metals change with distance from the mine?
 
 
