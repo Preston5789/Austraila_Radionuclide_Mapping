@@ -40,5 +40,5 @@ The second input is the date the sample type was collected. Since there are many
 ## Authors
 
 * **Preston Phillips** - [Preston5789](https://github.com/Preston5789)
-
-
+* **Scott Braley** 
+* **Chloe Stenkamp-Strahm** 
