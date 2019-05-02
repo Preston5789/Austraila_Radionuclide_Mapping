@@ -24,7 +24,7 @@ A number of sample results were reported as below detection limits, in the form 
 
 ### Results
 <p align="center">
-  <img src="https://github.com/Preston5789/Austraila_Radionuclide_Mapping/blob/master/Austrialia_Pics/Graph1.PNG" width="350" title="hover text">
+  <img src="https://github.com/Preston5789/Austraila_Radionuclide_Mapping/blob/master/Austrialia_Pics/Graph1.png" width="350" title="hover text">
 </p>
 If the presence of the mine had a direct impact on the radionuclide concentrations in the environment, one would expect to see concentrations of radionuclides increase over time from the point before the mine was established to after. However, there is no apparent data to indicate an upward trend in radionuclide concentration over time, nor does the radionuclide concentration seem to depend on distance for a particular year.
 The fluctuations in radionuclide content is most likely caused by naturally radionuclide concentrations in the local geology. There has been a presence of radionculides in the surrounding geology preceding any excavation from the mine.
