@@ -36,12 +36,6 @@ The shiny app is an interactive map where the user can define inputs to map and 
 The second input is the date the sample type was collected. Since there are many different times of year represented for sample collection (ie the samples weren?t taken every year in October, for instance, but randomly across the year), the samples are selectable by year as the option. The user can specify the year via a slider input. 
 	
 
-## Built With
-
-* [Python-Binance](https://github.com/sammchardy/python-binance) - API for stock price websocket, buying, and selling
-* [Numpy](https://www.numpy.org/) - scientific computing with Python
-* [Scipy](https://www.scipy.org/) - used for linear regression calculations
-
 
 ## Authors
 
